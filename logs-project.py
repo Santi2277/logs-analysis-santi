@@ -53,6 +53,7 @@ def hello():
         SHOW= SHOW + PART3.format(str1=name, str2=count_vis)
     #drop helper view
     c.execute("drop view art_visits")
+    db.commit()
     db.close()
     #return that html code plus the code necessary (FINAL) to close the ordered list
     return SHOW+FINAL
