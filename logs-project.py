@@ -82,13 +82,12 @@ def hello():
         SHOW2= SHOW2 + PART4.format(str1=name, str2=count_vis)
 
     #drop views
-    c.execute("drop view log_date")
-    db.commit()
     c.execute("drop view log_date_tot_req")
     db.commit()
     c.execute("drop view log_date_err_req")
     db.commit()
-
+    c.execute("drop view log_date")
+    db.commit()
 
 
     db.close()
