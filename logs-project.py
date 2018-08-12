@@ -1,5 +1,7 @@
 from flask import Flask
 import psycopg2
+import datetime
+
 
 #new object (using flask microfamework)
 app = Flask(__name__)
@@ -28,7 +30,7 @@ QUERY3='''
 <ol>
 '''
 PART4 = '''
-  <li>{str1} -- {str2} errors</li>
+  <li>{str1} -- {str2}% errors</li>
 '''
 
 #method for when someone accesses to root directory
@@ -78,8 +80,8 @@ def hello():
     c.execute("select a.time, 10000*count_err/count_tot as expr from log_date_err_req a join log_date_tot_req b on b.time = a.time where (10000*count_err/count_tot) > 100")
     message = c.fetchall()
     for name, count_vis in message:
-        #(NOTE NOTE NOTE NOTE NOTE convert format to output query to html shown)
-        SHOW2= SHOW2 + PART4.format(str1=name, str2=count_vis)
+        err=count_vis/100.0
+        SHOW2= SHOW2 + PART4.format(str1=name.strftime("%B %d, %Y"), str2="%.1f" % err)
 
     #drop views
     c.execute("drop view log_date_tot_req")
