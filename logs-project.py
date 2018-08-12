@@ -37,7 +37,10 @@ PART4 = '''
 @app.route('/')
 def hello():
     #connect to database news
-    db = psycopg2.connect(dbname="news", user="postgres", password="akiratoriyama")
+    #NOTE my windows database code for test was
+    #db = psycopg2.connect(dbname="news", user="postgres", password="akiratoriyama")
+    #NOTE db connection with vagrant
+    db = psycopg2.connect(dbname="news")
     c = db.cursor()
 
     #1ST QUERY
