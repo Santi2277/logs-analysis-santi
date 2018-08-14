@@ -44,7 +44,10 @@ def hello():
     # db = psycopg2.connect(dbname="news",
     # user="postgres", password="akiratoriyama")
     # NOTE db connection with vagrant
-    db = psycopg2.connect(dbname="news")
+    try:
+        db = psycopg2.connect(dbname="news")
+    except:
+        print ("Unable to connect to the database")
     c = db.cursor()
 
     # 1ST QUERY
