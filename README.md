@@ -32,10 +32,11 @@ The database contains 3 tables: authors (4 entries), articles (8 entries) and lo
 ## Installation
 
 After installing all the necessary specified below, you should have run vagrant ssh. Change directory again to vagrant. Use the command `psql -d news -f newsdata.sql` to load the database. Use `psql -d news` to acces to the database with vagrant.
+
 To enable the app (**server**) run  `python logs-project.py` and send the GET request with other terminal to the shown port. It will display the solution like ordered lists in Html.
 
 
 ## Known Bugs
 
-The tests were separated in two parts. SQL queries were tested with vagrant but the server itself (Python3 code and Html)  was tested by Windows (running the server with the Bash terminal and accessing via webbrowser) due to having problems on doing a GET request with other vagrant terminal.
+The tests were separated in two parts. SQL queries were tested with vagrant but the server itself (Python3 code and Html)  was tested by Windows (running the server with the Bash terminal and accessing via webbrowser, with a similar created Windows database) due to having problems on doing a GET request with other vagrant terminal.
 
